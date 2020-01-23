@@ -1,1 +1,218 @@
-<h1>Pi Setup!</h1>
+
+<!DOCTYPE html>
+<html>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="w3.css">
+<script src="jquery.js"></script>
+<script>
+function updateLight(lights) {
+  var bedRoomState = $( "[data-value='bedroom']" ).css("color");
+  var allState = $( "[data-value='all']" ).css("color");
+  var livingRoomState = $( "[data-value='livingroom']" ).css("color");
+  switch(lights)
+  {
+    case 'bedroom':
+      if(bedRoomState=="rgb(0, 0, 0)")
+      {
+        console.log("Bedroom off");
+        toggleLight(3,"false");
+        toggleLight(4,"false");
+        toggleLight(5,"false");
+      }
+      else
+      {
+        console.log("Bedroom on");
+        toggleLight(3,"true");
+        toggleLight(4,"true");
+        toggleLight(5,"true");
+      }
+      break;
+    case 'livingroom':
+      if(livingRoomState=="rgb(0, 0, 0)")
+      {
+        console.log("LivingRoom off");
+        toggleLight(6,"false");
+        toggleLight(8,"false");
+        toggleLight(9,"false");
+        toggleLight(10,"false");
+        toggleLight(11,"false");
+      }
+      else
+      {
+        console.log("LivingRoom on");
+        toggleLight(6,"true");
+        toggleLight(8,"true");
+        toggleLight(9,"true");
+        toggleLight(10,"true");
+        toggleLight(11,"true");
+      }
+      break;
+    case 'all':
+      if(allState=="rgb(0, 0, 0)")
+      {
+        console.log("All off");
+        toggleLight(3,"false");
+        toggleLight(4,"false");
+        toggleLight(5,"false");
+        toggleLight(6,"false");
+        toggleLight(8,"false");
+        toggleLight(9,"false");
+        toggleLight(10,"false");
+        toggleLight(11,"false");
+      }
+      else
+      {
+        console.log("All on");
+        toggleLight(3,"true");
+        toggleLight(4,"true");
+        toggleLight(5,"true");
+        toggleLight(6,"true");
+        toggleLight(8,"true");
+        toggleLight(9,"true");
+        toggleLight(10,"true");
+        toggleLight(11,"true");
+      }
+      break;
+  }
+}
+function toggleLight(light, power)
+{
+  if(power=="true")
+  {
+  var settings = {
+      "async": true,
+      "crossDomain": true,
+      "url": "http://192.168.128.2/api/ouP-bwq6ZUQkRSAQtAbejkR5dXoGMW8sN3N8lyou/lights/"+light+"/state",
+      "method": "PUT",
+      "headers": {
+        "Content-Type": "application/json",
+        "Accept": "*/*",
+      },
+    "processData": false,
+    "data": "{\n    \"on\": " + power + ",\n    \"sat\": 100,\n    \"bri\": 254,\n    \"hue\": 12000\n}"
+   }
+  }
+  else
+  {
+    var settings = {
+      "async": true,
+      "crossDomain": true,
+      "url": "http://192.168.128.2/api/ouP-bwq6ZUQkRSAQtAbejkR5dXoGMW8sN3N8lyou/lights/"+light+"/state",
+      "method": "PUT",
+      "headers": {
+        "Content-Type": "application/json",
+        "Accept": "*/*",
+      },
+    "processData": false,
+    "data": "{\n    \"on\": " + power + "\n}"
+   }
+  }
+  $.ajax(settings).done(function (response) {
+      //console.log(response);
+    });
+}
+</script>
+<style>
+body,h1 {font-family: "Raleway", sans-serif}
+body, html {height: 100%}
+.bgimg {
+  background-image: url('bg.jpg');
+  min-height: 100%;
+  background-position: center;
+  background-size: cover;
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 240px;
+  height: 80px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #0f0f0f;
+  -webkit-transition: .4s;
+  transition: .4s;
+  font-size:24px;
+  text-align: center;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 60px;
+  width: 35px;
+  left: 14px;
+  bottom: 12px;
+  background-color: #FFcc01;
+  -webkit-transition: .8s;
+  transition: .8s;
+}
+
+input:checked + .slider {
+  background-color: #00FF00;
+  color:#000;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #00EE00;
+}
+
+
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+</style>
+<body>
+
+<div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
+  <div class="w3-display-topleft w3-padding-large w3-xlarge">
+    Logo
+  </div>
+  <div class="w3-display-middle">
+    <div class="w3-jumbo w3-animate-top">
+      <label class="switch" id="bedroom" onclick="updateLight('bedroom');">
+        <input type="checkbox" />
+        <span class="slider">
+          <p data-value="bedroom"> Bedroom</p>
+        </span>
+      </label>
+      <label class="switch" id="livingroom" onclick="updateLight('livingroom');">
+        <input type="checkbox" />
+        <span class="slider">
+          <p data-value="livingroom">Living Room</p>
+        </span>
+      </label>
+      <label class="switch" id="light10" onclick="updateLight('all');">
+        <input type="checkbox" />
+        <span class="slider">
+          <p data-value="all">All Lights</p>
+        </span>
+      </label>
+    </div>
+  </div>
+  <div class="w3-display-bottomleft w3-padding-large">
+    Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a>
+  </div>
+</div>
+
+</body>
+</html>

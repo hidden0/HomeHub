@@ -3,6 +3,4 @@
 sudo apt install apache2 -y
 # Setup pi user permissions for /var/www/html
 sudo usermod -a -G www-data pi
-sudo chown -R -f www-data:www-data /var/www/html
-# Restart
-sudo reboot
+sudo chown -R pi:www-data /var/www
