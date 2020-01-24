@@ -115,12 +115,10 @@
     </script>
   </head>
 <body>
-  <div style="position:absolute; float:left;">
-    <div style="width:auto !important;" id="cont_c52bb0185ba6eae1129f68335beb6e87"><script type="text/javascript" async src="https://www.theweather.com/wid_loader/c52bb0185ba6eae1129f68335beb6e87"></script></div>
-
-  </div>
-  <div style="position:absolute; float:left; left:120px;">
-    Test
-  </div>
+  <div id="openweathermap-widget-15"></div>
+  <script>
+    window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];
+    window.myWidgetParam.push({id: 15,cityid: '5391959',appid: '5fbc308e3d679acf2e1df726a8fc2349',units: 'metric',containerid: 'openweathermap-widget-15',  });
+    (function() {var script = document.createElement('script');script.async = true;script.charset = "utf-8";script.src = "https://openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(script, s);  })();</script>
 </body>
 </html>
