@@ -3,6 +3,9 @@ body {
   background-color: #000;
   color:#fff;
 }
+#controls {
+  float:right;
+}
 .lightButton {
 	background:linear-gradient(to bottom, #768d87 5%, #6c7c7c 100%);
 	background-color:#768d87;
