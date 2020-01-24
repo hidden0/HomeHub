@@ -3,3 +3,28 @@ body {
   background-color: #000;
   color:#fff;
 }
+.lightButton {
+	background:linear-gradient(to bottom, #768d87 5%, #6c7c7c 100%);
+	background-color:#768d87;
+	border:2px solid #000000;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Verdana;
+	font-size:18px;
+	font-weight:bold;
+  text-align:center;
+	padding:11px 29px;
+	text-decoration:none;
+	text-shadow:-6px 5px 6px #2b665e;
+  float:left;
+  width:220px;
+}
+.lightButton:hover {
+	background:linear-gradient(to bottom, #6c7c7c 5%, #768d87 100%);
+	background-color:#6c7c7c;
+}
+.lightButton:active {
+	position:relative;
+	top:1px;
+}
