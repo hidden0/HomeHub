@@ -118,7 +118,7 @@
   <div id="card">
     <pre>
     <?php
-        echo exec('fortune');
+        echo exec('/usr/bin/fortune');
     ?>
     </pre>
   </div>
