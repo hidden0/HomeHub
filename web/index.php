@@ -118,7 +118,7 @@
   <div id="card">
     <pre>
     <?php
-        echo exec('/usr/games/fortune');
+        echo shell_exec('/usr/games/fortune');
     ?>
     </pre>
   </div>
