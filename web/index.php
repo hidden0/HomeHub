@@ -112,20 +112,25 @@
         //console.log(response);
       });
   }
+    function load_fortune() {
+       document.getElementById("fortune").innerHTML='<object type="text/html" data="home.html" ></object>';
+    }
     </script>
   </head>
 <body>
   <div id="card">
-    <pre>
-    <?php
-        $output = shell_exec('/usr/games/fortune');
-        echo $output;
-    ?>
-    </pre>
+    <div id="fortune"></div>
   </div>
   <div id="card_controls">
     <div class="pager" style="float:left;"><</div>
     <div class="pager" style="float:right;">></div>
   </div>
+  <script>
+  $(document).ready( function() {
+      $("#fortune").on("click", function() {
+          $("#fortune").load("tools/fortune.php");
+      });
+  });
+  </script>
 </body>
 </html>
