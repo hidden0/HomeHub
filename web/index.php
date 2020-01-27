@@ -118,6 +118,7 @@
   <div id="card">
     <pre>
     <?php
+        echo "Test";
         echo exec("fortune");
     ?>
     </pre>
