@@ -115,7 +115,13 @@
     </script>
   </head>
 <body>
-  <div id="card"></div>
+  <div id="card">
+    <pre>
+    <?php
+        echo exec("fortune");
+    ?>
+    </pre>
+  </div>
   <div id="card_controls">
     <div class="pager" style="float:left;"><</div>
     <div class="pager" style="float:right;">></div>
