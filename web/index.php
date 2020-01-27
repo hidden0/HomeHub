@@ -115,18 +115,10 @@
     </script>
   </head>
 <body>
-  <div id="openweathermap-widget-15"></div>
-  <div id="controls">
-    <div href="#" class="lightButton">Living Room Lights</div>
-    <div style="clear:both;"></div>
-    <div href="#" class="lightButton">Bedroom Lights</div>
-    <div style="clear:both;"></div>
-    <div href="#" class="lightButton">Hallway Lights</div>
-    <div style="clear:both;"></div>
+  <div id="card"></div>
+  <div id="card_controls">
+    <div class="pager" style="float:left;"><</div>
+    <div class="pager" style="float:right;">></div>
   </div>
-  <script>
-    window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];
-    window.myWidgetParam.push({id: 15,cityid: '5391959',appid: '5fbc308e3d679acf2e1df726a8fc2349',units: 'metric',containerid: 'openweathermap-widget-15',  });
-    (function() {var script = document.createElement('script');script.async = true;script.charset = "utf-8";script.src = "https://openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(script, s);  })();</script>
 </body>
 </html>
