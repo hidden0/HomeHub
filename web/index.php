@@ -118,7 +118,8 @@
   <div id="card">
     <pre>
     <?php
-        echo shell_exec('/usr/games/fortune');
+        $output = shell_exec('/usr/games/fortune');
+        echo $output;
     ?>
     </pre>
   </div>
