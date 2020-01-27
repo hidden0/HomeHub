@@ -127,6 +127,7 @@
   </div>
   <script>
   $(document).ready( function() {
+      $("#fortune").load("tools/fortune.php");
       $("#card").on("click", function() {
           $("#fortune").load("tools/fortune.php");
       });
